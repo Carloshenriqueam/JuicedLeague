@@ -166,17 +166,6 @@ nav {
     text-shadow: var(--thin-glow);
 }
 
-.nav-links a::before {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--secondary-color);
-    transition: width 0.3s ease-out;
-}
-
 .nav-links a:hover::before {
     width: 100%;
 }
