@@ -248,32 +248,41 @@
         </div>
     </footer>
 
-    <script>
-    // Configurações
-    const SHEET_ID = '19b66SqTnu1S3WzmX7ddpuhXY47x-1AamSovrJuec86w;' 
-    const API_KEY = 'https://script.google.com/macros/s/AKfycbyw-fLTp2KTh18KFzzVi0M_VZP2kQzsXjsovD7H9GhARXyzTUzI6bZkzbjWrnO_jq3l/exec'; // Chave da API Google
-    const RANGE = 'Classificação!A2:A3'; // Intervalo de dados (ajuste conforme sua planilha)
-
-    // Função para buscar dados da planilha
+   <script>
+    // Configurações CORRETAS:
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyw-fLTp2KTh18KFzzVi0M_VZP2kQzsXjsovD7H9GhARXyzTUzI6bZkzbjWrnO_jq3l/exec";
+    
+    // Função para buscar dados do Web App
     async function fetchSheetData() {
-        const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
-        
         try {
-            const response = await fetch(url);
+            const response = await fetch(WEB_APP_URL);
+            if (!response.ok) throw new Error("Erro na rede");
             const data = await response.json();
-            return data.values;
+            return data;
         } catch (error) {
             console.error('Erro ao buscar dados:', error);
+            document.getElementById('loading-error').style.display = 'block';
             return null;
         }
     }
 
-    // Função para atualizar a tabela com os dados da planilha
+    // Função para atualizar a tabela
     async function updateRankingTable() {
+        // Mostra estado de carregamento
+        document.getElementById('loading-state').style.display = 'block';
+        document.getElementById('loading-error').style.display = 'none';
+        
         const sheetData = await fetchSheetData();
         if (!sheetData) return;
-
+        
         const tableBody = document.querySelector('.ranking-table-container table tbody');
+        
+        // Verifica se há dados suficientes
+        if (!Array.isArray(sheetData) {
+            console.error('Dados inválidos recebidos');
+            return;
+        }
+
         tableBody.innerHTML = ''; // Limpa a tabela
 
         sheetData.forEach((row, index) => {
@@ -281,35 +290,38 @@
             
             // Formatação especial para os 3 primeiros
             let positionClass = '';
-            if (index < 3) {
-                positionClass = `class="top-${index + 1}"`;
-            }
+            if (index < 3) positionClass = `top-${index + 1}`;
 
             tr.innerHTML = `
-                <td ${positionClass}>${index + 1}</td>
-                <td class="driver-cell">${row[0] || '-'}</td> <!-- Piloto -->
-                <td>${row[1] || '-'}</td> <!-- Veículo -->
-                <td class="points-cell">${row[2] || '0'}</td> <!-- Pontos totais -->
-                <td class="race-points">${row[3] || '0'}</td> <!-- Race 1 -->
-                <td class="race-points">${row[4] || '0'}</td> <!-- Race 2 -->
-                <td class="race-points">${row[5] || '0'}</td> <!-- Race 3 -->
-                <td class="race-points">${row[6] || '0'}</td> <!-- Race 4 -->
-                <td class="race-points">${row[7] || '0'}</td> <!-- Race 5 -->
+                <td class="position-cell ${positionClass}">${index + 1}</td>
+                <td class="driver-cell">${row[0] || '-'}</td>
+                <td>${row[1] || '-'}</td>
+                <td class="points-cell">${row[2] || '0'}</td>
+                <td class="race-points">${row[3] || '0'}</td>
+                <td class="race-points">${row[4] || '0'}</td>
+                <td class="race-points">${row[5] || '0'}</td>
+                <td class="race-points">${row[6] || '0'}</td>
+                <td class="race-points">${row[7] || '0'}</td>
             `;
             
             tableBody.appendChild(tr);
         });
+        
+        // Esconde o estado de carregamento
+        document.getElementById('loading-state').style.display = 'none';
     }
 
-    // Atualiza ao carregar a página
+    // Adicione no seu HTML (antes da tabela):
+    // <div id="loading-state">Carregando dados...</div>
+    // <div id="loading-error" style="display:none;color:red">Erro ao carregar dados</div>
+
+    // Inicialização
     document.addEventListener('DOMContentLoaded', () => {
         updateRankingTable();
-        
-        // Atualiza a cada 5 minutos
-        setInterval(updateRankingTable, 300000);
+        setInterval(updateRankingTable, 300000); // Atualiza a cada 5 minutos
     });
 
-    // Mantenha a animação existente
+    // Mantenha as animações existentes
     const animateOnScroll = () => {
         const elements = document.querySelectorAll('.fade-in');
         elements.forEach(el => {
@@ -323,7 +335,7 @@
 
     window.addEventListener('scroll', animateOnScroll);
     window.addEventListener('load', animateOnScroll);
+</script>
 
-    </script>
 </body>
 </html>
