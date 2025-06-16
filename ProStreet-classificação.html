@@ -249,20 +249,81 @@
     </footer>
 
     <script>
-        // Animar elementos quando aparecem na tela
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.fade-in');
-            elements.forEach(el => {
-                const elTop = el.getBoundingClientRect().top;
-                if (elTop < window.innerHeight - 100) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        };
+    // Configurações
+    const SHEET_ID = '19b66SqTnu1S3WzmX7ddpuhXY47x-1AamSovrJuec86w;' 
+    const API_KEY = 'https://script.google.com/macros/s/AKfycbyw-fLTp2KTh18KFzzVi0M_VZP2kQzsXjsovD7H9GhARXyzTUzI6bZkzbjWrnO_jq3l/exec'; // Chave da API Google
+    const RANGE = 'Classificação!A2:A3'; // Intervalo de dados (ajuste conforme sua planilha)
 
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
+    // Função para buscar dados da planilha
+    async function fetchSheetData() {
+        const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${RANGE}?key=${API_KEY}`;
+        
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            return data.values;
+        } catch (error) {
+            console.error('Erro ao buscar dados:', error);
+            return null;
+        }
+    }
+
+    // Função para atualizar a tabela com os dados da planilha
+    async function updateRankingTable() {
+        const sheetData = await fetchSheetData();
+        if (!sheetData) return;
+
+        const tableBody = document.querySelector('.ranking-table-container table tbody');
+        tableBody.innerHTML = ''; // Limpa a tabela
+
+        sheetData.forEach((row, index) => {
+            const tr = document.createElement('tr');
+            
+            // Formatação especial para os 3 primeiros
+            let positionClass = '';
+            if (index < 3) {
+                positionClass = `class="top-${index + 1}"`;
+            }
+
+            tr.innerHTML = `
+                <td ${positionClass}>${index + 1}</td>
+                <td class="driver-cell">${row[0] || '-'}</td> <!-- Piloto -->
+                <td>${row[1] || '-'}</td> <!-- Veículo -->
+                <td class="points-cell">${row[2] || '0'}</td> <!-- Pontos totais -->
+                <td class="race-points">${row[3] || '0'}</td> <!-- Race 1 -->
+                <td class="race-points">${row[4] || '0'}</td> <!-- Race 2 -->
+                <td class="race-points">${row[5] || '0'}</td> <!-- Race 3 -->
+                <td class="race-points">${row[6] || '0'}</td> <!-- Race 4 -->
+                <td class="race-points">${row[7] || '0'}</td> <!-- Race 5 -->
+            `;
+            
+            tableBody.appendChild(tr);
+        });
+    }
+
+    // Atualiza ao carregar a página
+    document.addEventListener('DOMContentLoaded', () => {
+        updateRankingTable();
+        
+        // Atualiza a cada 5 minutos
+        setInterval(updateRankingTable, 300000);
+    });
+
+    // Mantenha a animação existente
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach(el => {
+            const elTop = el.getBoundingClientRect().top;
+            if (elTop < window.innerHeight - 100) {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
     </script>
 </body>
 </html>
