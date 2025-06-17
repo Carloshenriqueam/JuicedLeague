@@ -10,14 +10,19 @@
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo"><a href="index.html" class="titulo">Juiced<span>League</span></a></div>
-            <div class="season-info">
-                <p>Temporada 2025 | Street Race</p>
-            </div>
+  <header>
+    <div class="container header-content">
+       <div class="logo"><a href="index.html" class="titulo">Juiced<span>League</span></a></div>
+        <div class="season-info">
+            <p>Temporada 2025 | Street Race</p>
         </div>
-    </header>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
 
     <nav>
         <div class="container">
@@ -162,5 +167,31 @@
             </div>
         </div>
     </footer>
+        <script>
+   
+        
+        // Animar elementos quando aparecem na tela
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => {
+                const elTop = el.getBoundingClientRect().top;
+                if (elTop < window.innerHeight - 100) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
+    </script>
 </body>
 </html>

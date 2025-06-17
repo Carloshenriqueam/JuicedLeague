@@ -1049,7 +1049,7 @@ footer::before {
 
 @media (max-width: 768px) {
     .season-info {
-        text-align: center;
+        display: none;
     }
     
     .nav-links {
@@ -1186,7 +1186,7 @@ nav {
 
     .nav-links {
         position: absolute;
-        top: 50px;
+        top: 10px;
         left: 0;
         width: 100%;
         background: #053717d0;

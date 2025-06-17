@@ -540,7 +540,7 @@ footer::before {
     }
     
     .season-info {
-        text-align: center;
+        display: none;
     }
     
     .nav-links {
