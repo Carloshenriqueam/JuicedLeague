@@ -6,12 +6,12 @@
     <title>Juiced League</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 <header>
     <div class="container header-content">
-        <div class="logo">Juiced<span>League</span></div>
+        <div class="logo"><a href="index.html" class="titulo">Juiced<span>League</span></a></div>
         <div class="season-info">
             <p>Temporada 2025 | Street Race</p>
         </div>
@@ -177,7 +177,7 @@
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
 
-        const hamburger = document.getElementById('hamburger');
+    const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
 
     hamburger.addEventListener('click', () => {

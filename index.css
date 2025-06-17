@@ -113,7 +113,18 @@ header {
     position: relative;
     padding-right: 10px;
 }
-
+.titulo{
+        font-family: var(--font-main);
+    font-size: 2rem;
+    font-weight: 700;
+    color: transparent;
+    background: linear-gradient(90deg, var(--secondary-color), #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+}
 .logo::after {
     content: '';
     position: absolute;
@@ -1037,12 +1048,6 @@ footer::before {
 }
 
 @media (max-width: 768px) {
-    .header-content {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-    }
-    
     .season-info {
         text-align: center;
     }

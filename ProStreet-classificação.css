@@ -113,7 +113,18 @@ header {
     position: relative;
     padding-right: 10px;
 }
-
+.titulo{
+    font-family: var(--font-main);
+    font-size: 2rem;
+    font-weight: 700;
+    color: transparent;
+    background: linear-gradient(90deg, var(--secondary-color), #ffffff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+}
 .logo::after {
     content: '';
     position: absolute;
@@ -693,7 +704,7 @@ nav {
 
     .nav-links {
         position: absolute;
-        top: 50px;
+        top: 10px;
         left: 0;
         width: 100%;
         background: #053717d0;
