@@ -9,25 +9,30 @@
     <link rel="stylesheet" href="home.css">
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">Juiced<span>League</span></div>
-            <div class="season-info">
-                <p>Temporada 2025 | Street Race</p>
-            </div>
+<header>
+    <div class="container header-content">
+        <div class="logo">Juiced<span>League</span></div>
+        <div class="season-info">
+            <p>Temporada 2025 | Street Race</p>
         </div>
-    </header>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
 
-    <nav>
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
-                <li><a href="Eventos.html"><i class="fas fa-trophy"></i> Eventos</a></li>
-                <li><a href="regulamentos.html"><i class="fas fa-calendar-alt"></i> Regulamentos</a></li>
-                <li><a href="#"><i class="fas fa-envelope"></i> Contato</a></li>
-            </ul>
-        </div>
-    </nav>
+<nav>
+    <div class="container">
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="Eventos.html"><i class="fas fa-trophy"></i> Eventos</a></li>
+            <li><a href="regulamentos.html"><i class="fas fa-calendar-alt"></i> Regulamentos</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contato</a></li>
+        </ul>
+    </div>
+</nav>
 
     <section class="hero">
         <div class="hero-content">
@@ -155,26 +160,8 @@
     </footer>
 
     <script>
-        // Countdown para próxima corrida
-        function updateCountdown() {
-            const nextRaceDate = new Date('November 25, 2023 00:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = nextRaceDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-
+   
+        
         // Animar elementos quando aparecem na tela
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.fade-in');
@@ -189,6 +176,14 @@
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+
+        const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
     </script>
 </body>
 </html>

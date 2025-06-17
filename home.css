@@ -14,6 +14,33 @@
     --glow-effect: 0 0 10px rgba(0, 255, 157, 0.7);
     --thin-glow: 0 0 3px rgba(0, 255, 157, 0.9);
 }
+/* Estilo para navegadores baseados em WebKit (Chrome, Edge, Opera) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0c0c0c; /* fundo da trilha */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #00ff9d, #005548);
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 255, 157, 0.5);
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #00ffaa, #00d488);
+}
+
+/* Firefox (scrollbar styling ainda é limitado, mas funcional com isso) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #00ff9d #0c0c0c;
+}
 
 /* Reset e estilos base com animações suaves */
 * {
@@ -163,7 +190,8 @@ nav {
 
 .nav-links a:hover {
     color: var(--secondary-color);
-    text-shadow: var(--thin-glow);
+    text-shadow: 0 0 10px var(--secondary-color), 0 0 20px rgba(0, 255, 157, 0.5);
+    transform: scale(1.05);
 }
 
 .nav-links a:hover::before {
@@ -174,6 +202,20 @@ nav {
     margin-right: 8px;
     color: var(--secondary-color);
     font-size: 1.2rem;
+}
+.nav-links {
+    animation: fadeInNav 0.8s ease-in-out both;
+}
+
+@keyframes fadeInNav {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Hero Section com efeitos */
@@ -1095,5 +1137,77 @@ footer::before {
     
     .feature-card, .driver-card {
         padding: 30px 20px;
+    }
+}
+header,
+nav {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Botão Hamburguer */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #00ff9d;
+    border-radius: 2px;
+    transition: 0.3s ease-in-out;
+}
+
+/* Animação ao abrir */
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Estilo para menu em telas pequenas */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
+        background: #053717d0;
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        z-index: 1000;
+        border: 1px solid rgba(112, 255, 162, 0.652);
+    }
+
+    .nav-links.show {
+        max-height: 300px;
+        border-top: 1px solid rgba(0, 255, 157, 0.2);
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links a {
+        justify-content: center;
+        width: 100%;
+        display: block;
     }
 }

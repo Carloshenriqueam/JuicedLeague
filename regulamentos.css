@@ -14,6 +14,33 @@
     --glow-effect: 0 0 10px rgba(0, 255, 157, 0.7);
     --thin-glow: 0 0 3px rgba(0, 255, 157, 0.9);
 }
+/* Estilo para navegadores baseados em WebKit (Chrome, Edge, Opera) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0c0c0c; /* fundo da trilha */
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #00ff9d, #005548);
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 255, 157, 0.5);
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #00ffaa, #00d488);
+}
+
+/* Firefox (scrollbar styling ainda é limitado, mas funcional com isso) */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #00ff9d #0c0c0c;
+}
 
 /* Reset e estilos base com animações suaves */
 * {
@@ -163,7 +190,8 @@ nav {
 
 .nav-links a:hover {
     color: var(--secondary-color);
-    text-shadow: var(--thin-glow);
+    text-shadow: 0 0 10px var(--secondary-color), 0 0 20px rgba(0, 255, 157, 0.5);
+    transform: scale(1.05);
 }
 
 .nav-links a:hover::before {
@@ -174,6 +202,20 @@ nav {
     margin-right: 8px;
     color: var(--secondary-color);
     font-size: 1.2rem;
+}
+.nav-links {
+    animation: fadeInNav 0.8s ease-in-out both;
+}
+
+@keyframes fadeInNav {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Main Content */
