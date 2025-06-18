@@ -35,7 +35,14 @@
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #00ffaa, #00d488);
 }
-
+@font-face {
+  font-family: Beat Tech;
+  src: url('fonts/BEATTECH.otf');
+}
+@font-face {
+  font-family: Beat Tech2;
+  src: url('fonts/BEATTECH-Line.otf');
+}
 /* Firefox (scrollbar styling ainda é limitado, mas funcional com isso) */
 * {
     scrollbar-width: thin;
@@ -82,9 +89,9 @@ body {
 
 /* Header futurista */
 header {
-    background-color: rgba(0, 0, 0, 0.9);
+    background: linear-gradient(95deg, rgba(70, 255, 159, 0.111),black, transparent, rgba(70, 255, 159, 0.107));
     padding: 15px 0;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
     position: fixed;
     width: 100%;
     top: 0;
@@ -144,7 +151,7 @@ header {
 
 .season-info {
     font-family: var(--font-main);
-    font-weight: 600;
+    font-weight: bolder;
     color: var(--secondary-color);
     text-align: right;
     position: relative;
@@ -163,14 +170,14 @@ header {
 
 /* Navigation high-tech */
 nav {
-    background-color: rgba(0, 30, 20, 0.9);
+    background: linear-gradient(95deg, rgba(70, 255, 159, 0.111),black, transparent, rgba(70, 255, 159, 0.107));
     padding: 12px 0;
     margin-top: 70px;
     position: sticky;
     top: 70px;
     z-index: 999;
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+    border-bottom: 2px solid rgba(0, 255, 157, 0.2);
     transition: all 0.4s;
     
 }
@@ -238,7 +245,7 @@ main {
 }
 
 .main-title {
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-size: 2.8rem;
     margin-bottom: 50px;
     text-align: center;
@@ -420,7 +427,7 @@ footer::before {
 }
 
 .footer-column h4 {
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 25px;
     color: var(--secondary-color);

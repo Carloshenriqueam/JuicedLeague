@@ -91,9 +91,9 @@ body {
 
 /* Header futurista */
 header {
-    background-color: rgba(0, 0, 0, 0.9);
+    background: linear-gradient(95deg, rgba(70, 255, 159, 0.111),black, transparent, rgba(70, 255, 159, 0.107));
     padding: 15px 0;
-    border-bottom: 1px solid var(--secondary-color);
+    border-bottom: 2px solid var(--secondary-color);
     position: fixed;
     width: 100%;
     top: 0;
@@ -176,7 +176,7 @@ header {
 
 /* Navigation high-tech */
 nav {
-    background-color: rgba(0, 30, 20, 0.9);
+    background: linear-gradient(95deg, rgba(70, 255, 159, 0.111),black, transparent, rgba(70, 255, 159, 0.107));
     padding: 12px 0;
     margin-top: 70px;
     position: sticky;
@@ -986,6 +986,7 @@ footer::before {
     font-size: 0.9rem;
     opacity: 0.7;
     letter-spacing: 0.5px;
+    font-family: 'Beat Tech', sans-serif;
 }
 
 /* Efeitos de scroll */
