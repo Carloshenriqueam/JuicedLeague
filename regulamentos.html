@@ -9,20 +9,25 @@
     <link rel="stylesheet" href="regulamentos.css">
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">Juiced<span>League</span></div>
-            <div class="season-info">
-                <p>Temporada 2025 | Street Race</p>
-            </div>
+  <header>
+    <div class="container header-content">
+       <div class="logo"><a href="index.html" class="titulo">Juiced<span>League</span></a></div>
+        <div class="season-info">
+            <p>Temporada 2025 | Street Race</p>
         </div>
-    </header>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
 
     <nav>
         <div class="container">
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
-                <li><a href="eventos.html"><i class="fas fa-trophy"></i> Eventos</a></li>
+                <li><a href="Eventos.html"><i class="fas fa-trophy"></i> Eventos</a></li>
                 <li><a href="regulamentos.html"><i class="fas fa-calendar-alt"></i> Regulamentos</a></li>
                 <li><a href="#"><i class="fas fa-envelope"></i> Contato</a></li>
             </ul>
@@ -187,6 +192,7 @@
     </footer>
 
     <script>
+        
         // Animar elementos quando aparecem na tela
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.fade-in');
@@ -201,6 +207,14 @@
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
     </script>
 </body>
 </html>

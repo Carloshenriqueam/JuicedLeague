@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juiced League | Pro Street</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Titillium+Web:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Revelations-classificação.css">
+</head>
+<body>
+<header>
+    <div class="container header-content">
+       <div class="logo"><a href="index.html" class="titulo">Juiced<span>League</span></a></div>
+        <div class="season-info">
+            <p>Temporada 2025 | Street Race</p>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="Eventos.html"><i class="fas fa-trophy"></i> Eventos</a></li>
+            <li><a href="regulamentos.html"><i class="fas fa-calendar-alt"></i> Regulamentos</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> Contato</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <main class="container">
+        <h1 class="main-title">Classificação Revelations</h1>
+
+        <div class="tables-container">
+            <!-- Tabela de Classificação Geral -->
+            <div class="ranking-table-container fade-in">
+                <h2 class="table-title"><i class="fas fa-trophy"></i> Classificação Geral</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Posição</th>
+                            <th>Racer</th>
+                            <th>State ID</th>
+                            <th>Veiculo</th>
+                            <th>Pontos Totais</th>
+                            <th>Race1</th>
+                            <th>Race2</th>
+                            <th>Race3</th>
+                            <th>Race4</th>
+                            <th>Race5</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Tabela de Sistema de Pontuação -->
+            <div class="ranking-table-container2 fade-in delay-1">
+                <h2 class="table-title"><i class="fas fa-star"></i> Sistema de Pontuação</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Posição</th>
+                            <th>Pontos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="position-cell">1º</td>
+                            <td class="points-cell">22</td>
+                        </tr>
+                        <tr>
+                            <td class="position-cell">2º</td>
+                            <td class="points-cell">18</td>
+                        </tr>
+                        <tr>
+                            <td class="position-cell">3º</td>
+                            <td class="points-cell">15</td>
+                        </tr>
+                        <tr>
+                            <td class="position-cell">4º</td>
+                            <td class="points-cell">12</td>
+                        </tr>
+                        <tr>
+                            <td class="position-cell">5º</td>
+                            <td class="points-cell">10</td>
+                        </tr>
+                        <tr>
+                            <td class="position-cell">6º</td>
+                            <td class="points-cell">8</td>
+                        </tr>
+                        <tr>
+                            <td class="position-cell">7º</td>
+                            <td class="points-cell">6</td>
+                        </tr>
+                        <tr>
+                            <td class="position-cell">8º</td>
+                            <td class="points-cell">4</td>
+                        </tr>
+                        <tr>
+                            <td class="position-cell">9º</td>
+                            <td class="points-cell">2</td>
+                        </tr>
+                        <tr>
+                            <td class="position-cell">10º</td>
+                            <td class="points-cell">1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>Sobre</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">O Campeonato</a></li>
+                        <li><a href="#">Regulamento</a></li>
+                        <li><a href="#">Edições Anteriores</a></li>
+                        <li><a href="#">Organização</a></li>
+                    </ul>
+                </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Juiced League Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+fetch('https://opensheet.elk.sh/19b66SqTnu1S3WzmX7ddpuhXY47x-1AamSovrJuec86w/Página1')
+    .then(response => response.json())
+    .then(data => {
+        const tabela = document.querySelector('.ranking-table-container table tbody');
+        tabela.innerHTML = ''; // Limpa a tabela
+
+        data.forEach(row => {
+            // Filtra linhas inválidas (sem "Position" ou "Racer")
+            if (row.Position && row.Racer) {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="position-cell">${row.Position || ''}</td>
+                    <td class="driver-cell">${row.Racer || ''}</td>
+                    <td>${row.StateID || ''}</td>
+                    <td>${row.Veiculo || ''}</td>
+                    <td class="points-cell">${row.PontosTotais || ''}</td>
+                    <td class="race-points">${row.Corrida1 || ''}</td>
+                    <td class="race-points">${row.Corrida2 || ''}</td>
+                    <td class="race-points">${row.Corrida3 || ''}</td>
+                    <td class="race-points">${row.Corrida4 || ''}</td>
+                    <td class="race-points">${row.Corrida5 || ''}</td>
+                `;
+                tabela.appendChild(tr);
+            }
+        });
+    })
+    .catch(error => console.error('Erro:', error));
+
+    // Animações (mantido do original)
+    const animateOnScroll = () => {
+        const elements = document.querySelectorAll('.fade-in');
+        elements.forEach(el => {
+            const elTop = el.getBoundingClientRect().top;
+            if (elTop < window.innerHeight - 100) {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

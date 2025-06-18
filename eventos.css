@@ -594,7 +594,6 @@ footer::before {
 
 @media (max-width: 768px) {
     .header-content {
-        flex-direction: column;
         text-align: center;
         gap: 10px;
     }
@@ -672,7 +671,10 @@ footer::before {
     .hamburger {
         display: flex;
     }
-
+   .season-info {
+        display: none;
+    }
+    
     .nav-links {
         position: absolute;
         top: 10px;
