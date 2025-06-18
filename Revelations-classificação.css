@@ -35,7 +35,14 @@
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #00ffaa, #00d488);
 }
-
+@font-face {
+  font-family: Beat Tech;
+  src: url('fonts/BEATTECH.otf');
+}
+@font-face {
+  font-family: Beat Tech2;
+  src: url('fonts/BEATTECH-Line.otf');
+}
 /* Firefox (scrollbar styling ainda é limitado, mas funcional com isso) */
 * {
     scrollbar-width: thin;
@@ -114,7 +121,7 @@ header {
     padding-right: 10px;
 }
 .titulo{
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: transparent;
@@ -144,7 +151,7 @@ header {
 
 .season-info {
     font-family: var(--font-main);
-    font-weight: 600;
+    font-weight: bolder;
     color: var(--secondary-color);
     text-align: right;
     position: relative;
@@ -247,9 +254,10 @@ main {
 }
 
 .main-title {
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-size: 3rem;
     margin-bottom: 40px;
+    margin-top: 40px;
     text-align: center;
     background: linear-gradient(90deg, var(--secondary-color), #ffffff);
     -webkit-background-clip: text;
@@ -294,6 +302,7 @@ main {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s, transform 0.8s;
+    margin-bottom: 60px;
 }
 
 .ranking-table-container2 {
@@ -326,6 +335,7 @@ main {
     display: flex;
     align-items: center;
     gap: 15px;
+    font-family: 'Beat Tech', sans-serif;
 }
 
 .table-title i {
@@ -341,7 +351,7 @@ table {
 th {
     background-color: rgba(0, 255, 157, 0.1);
     color: var(--secondary-color);
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -356,19 +366,20 @@ td {
     padding: 12px 10px;
     border-bottom: 1px solid rgba(0, 255, 157, 0.1);
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    
 }
 
 tr:hover {
  
 }
 .stateid-cell{
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-weight: 700;
     color: var(--secondary-color);
     width: 50px;
 }
 .position-cell {
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-weight: 700;
     color: var(--secondary-color);
     width: 50px;
@@ -379,15 +390,16 @@ tr:hover {
 }
 
 .points-cell {
-    font-family: var(--font-main);
     font-weight: 700;
     color: var(--secondary-color);
+    font-family: 'Beat Tech', sans-serif;
 }
 
 .race-points {
     text-align: center;
-    font-family: var(--font-main);
     font-weight: 600;
+    font-family: 'Beat Tech', sans-serif;
+    
 }
 
 /* Efeitos especiais para posições */
@@ -522,6 +534,7 @@ footer::before {
     font-size: 0.9rem;
     opacity: 0.7;
     letter-spacing: 0.5px;
+    font-family: 'Beat Tech', sans-serif;
 }
 /* Responsividade */
 @media (max-width: 1024px) {
