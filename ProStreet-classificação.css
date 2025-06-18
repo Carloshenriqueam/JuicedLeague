@@ -351,7 +351,7 @@ table {
 th {
     background-color: rgba(0, 255, 157, 0.1);
     color: var(--secondary-color);
-    font-family: 'Beat Tech', sans-serif;
+    font-family: var(--font-main);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -373,32 +373,32 @@ tr:hover {
  
 }
 .stateid-cell{
-    font-family: 'Beat Tech', sans-serif;
+    font-family: var(--font-main);
     font-weight: 700;
     color: var(--secondary-color);
     width: 50px;
 }
 .position-cell {
-    font-family: 'Beat Tech', sans-serif;
-    font-weight: 700;
+    font-family: var(--font-main);
+    font-weight: bolder;
     color: var(--secondary-color);
     width: 50px;
 }
 
 .driver-cell {
-    font-weight: 500;
+    font-weight: bolder;
 }
 
 .points-cell {
-    font-weight: 700;
+     font-weight: bolder;
     color: var(--secondary-color);
-    font-family: 'Beat Tech', sans-serif;
+    font-family: var(--font-main);
 }
 
 .race-points {
     text-align: center;
     font-weight: 600;
-    font-family: 'Beat Tech', sans-serif;
+     font-family: var(--font-main);
     
 }
 

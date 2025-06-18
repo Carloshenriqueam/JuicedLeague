@@ -121,7 +121,7 @@ header {
     padding-right: 10px;
 }
 .titulo{
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-size: 2rem;
     font-weight: 700;
     color: transparent;
