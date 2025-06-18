@@ -35,7 +35,14 @@
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #00ffaa, #00d488);
 }
-
+@font-face {
+  font-family: Beat Tech;
+  src: url('fonts/BEATTECH.otf');
+}
+@font-face {
+  font-family: Beat Tech2;
+  src: url('fonts/BEATTECH-Line.otf');
+}
 /* Firefox (scrollbar styling ainda é limitado, mas funcional com isso) */
 * {
     scrollbar-width: thin;
@@ -104,7 +111,6 @@ header {
 }
 
 .logo {
-    font-family: var(--font-main);
     font-size: 2rem;
     font-weight: 700;
     color: transparent;
@@ -115,9 +121,9 @@ header {
     letter-spacing: 3px;
     position: relative;
     padding-right: 10px;
+    
 }
 .titulo{
-        font-family: var(--font-main);
     font-size: 2rem;
     font-weight: 700;
     color: transparent;
@@ -127,6 +133,7 @@ header {
     text-transform: uppercase;
     letter-spacing: 3px;
     position: relative;
+    font-family: 'Beat Tech', sans-serif;
 }
 .logo::after {
     content: '';
@@ -148,16 +155,18 @@ header {
 
 .season-info {
     font-family: var(--font-main);
-    font-weight: 600;
+    font-weight: bolder;
     color: var(--secondary-color);
     text-align: right;
     position: relative;
+    
 }
 
 .season-info::before {
     content: '⚡';
     margin-right: 8px;
     animation: lightning 3s infinite;
+    
 }
 
 @keyframes lightning {
@@ -285,7 +294,6 @@ nav {
 }
 
 .hero h1 {
-    font-family: var(--font-main);
     font-size: 4.5rem;
     font-weight: 700;
     margin-bottom: 20px;
@@ -296,7 +304,7 @@ nav {
     text-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
     letter-spacing: 4px;
     line-height: 1.2;
-
+    font-family: 'Beat Tech', sans-serif;
 }
 
 @keyframes textGlow {
@@ -316,6 +324,7 @@ nav {
     margin-left: auto;
     margin-right: auto;
     opacity: 0.9;
+    
 }
 
 .btn {
@@ -375,6 +384,7 @@ section {
     position: relative;
     text-transform: uppercase;
     letter-spacing: 3px;
+      font-family: 'Beat Tech', sans-serif;
 }
 
 .section-title::after {
@@ -411,6 +421,7 @@ section {
     position: relative;
     overflow: hidden;
     transition: .5s; 
+    
 }
 
 .feature-card::before {
@@ -463,12 +474,13 @@ section {
 }
 
 .feature-card h3 {
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-size: 1.6rem;
     margin-bottom: 20px;
     color: var(--secondary-color);
     position: relative;
     display: inline-block;
+    
 }
 
 .feature-card h3::after {
@@ -481,6 +493,7 @@ section {
     height: 2px;
     background-color: var(--secondary-color);
     transition: width 0.3s;
+    
 }
 
 .feature-card:hover h3::after {
@@ -552,6 +565,7 @@ section {
     text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
     animation: pulse 2s infinite alternate;
     
+    
 }
 
 @keyframes pulse {
@@ -569,6 +583,7 @@ section {
     color: var(--light-text);
     font-weight: 300;
     letter-spacing: 1px;
+    
 }
 
 /* Top Drivers high-tech */
@@ -676,6 +691,7 @@ section {
     font-family: var(--font-main);
     font-size: 1.2rem;
     box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+    
 }
 
 .driver-name {
@@ -684,6 +700,7 @@ section {
     margin-bottom: 5px;
     color: var(--light-text);
     letter-spacing: 1px;
+      font-family: 'Beat Tech', sans-serif;
 }
 
 .driver-car {
@@ -769,7 +786,7 @@ section {
 }
 
 .newsletter h2 {
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 25px;
     background: linear-gradient(90deg, var(--secondary-color), #ffffff);
@@ -880,7 +897,7 @@ footer::before {
 }
 
 .footer-column h4 {
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 25px;
     color: var(--secondary-color);
