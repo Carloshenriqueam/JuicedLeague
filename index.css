@@ -69,16 +69,9 @@ body {
     background-image:
         radial-gradient(circle at 20% 30%, rgba(0, 255, 157, 0) 0%, transparent 20%),
         radial-gradient(circle at 80% 70%, rgba(0, 255, 157, 0.05) 0%, transparent 20%);
+     width: 100%;
 
-}
 
-@keyframes bgPulse {
-    0% {
-        background-position: 20% 30%, 80% 70%;
-    }
-    100% {
-        background-position: 30% 40%, 70% 60%;
-    }
 }
 
 .container {
@@ -101,6 +94,7 @@ header {
     backdrop-filter: blur(8px);
     box-shadow: var(--glow-effect);
     transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    
 }
 
 .header-content {
@@ -254,6 +248,7 @@ nav {
     padding-top: 70px;
     overflow: hidden;
     z-index: 1;
+    
 }
 
 .hero::before {
@@ -264,12 +259,13 @@ nav {
         radial-gradient(circle at 70% 30%, rgba(0, 255, 157, 0.1) 0%, transparent 30%),
         radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.1) 0%, transparent 30%),
         linear-gradient(to bottom, rgba(0, 0, 0, 0.629) 70%, rgba(0,0,0,1) 100%),
-        url(images/background.jpg);
+        url(images/FiveM_GTAProcess\ 2025-05-21\ 01-39-04.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     opacity: 1;
     z-index: -1;
+
 }
 
 
@@ -305,6 +301,7 @@ nav {
     letter-spacing: 4px;
     line-height: 1.2;
     font-family: 'Beat Tech', sans-serif;
+    
 }
 
 @keyframes textGlow {
@@ -315,7 +312,106 @@ nav {
         text-shadow: 0 0 20px rgba(0, 255, 157, 0.6), 0 0 30px rgba(0, 255, 157, 0.3);
     }
 }
+/* Efeito de projeção holográfica */
+@keyframes hologram-appear {
+    0% {
+        opacity: 0;
+        transform: perspective(500px) translateY(50px) rotateX(45deg);
+        filter: blur(0px) brightness(3);
+    }
+    80% {
+        opacity: 0.9;
+        filter: blur(1px) brightness(1.5);
+    }
+    100% {
+        opacity: 1;
+        transform: perspective(500px) translateY(0) rotateX(0);
+        filter: blur(0) brightness(1);
+    }
+}
 
+/* Efeito de chuva digital (Matrix) */
+@keyframes matrix-rain {
+    0% {
+        background-position: 0 0, 0 0, 0 0;
+    }
+    100% {
+        background-position: 0 -100%, 0 -200%, 0 -300%;
+    }
+}
+
+/* Pulsação do texto */
+@keyframes hologram-pulse {
+    0%, 100% {
+        text-shadow: 
+            0 0 10px rgba(0, 255, 157, 0.8),
+            0 0 20px rgba(0, 200, 255, 0.6),
+            0 0 30px rgba(100, 0, 255, 0.4);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px rgba(0, 255, 157, 1),
+            0 0 30px rgba(0, 150, 255, 0.8),
+            0 0 45px rgba(150, 0, 255, 0.6);
+    }
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: 
+        radial-gradient(circle at 70% 30%, rgba(0, 255, 157, 0.1) 0%, transparent 30%),
+        radial-gradient(circle at 30% 70%, rgba(0, 255, 157, 0.1) 0%, transparent 30%),
+        url(images/FiveM_GTAProcess\ 2025-05-21\ 01-39-04.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    z-index: -1;
+}
+
+.hero h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #00ff9d, #00b8ff, #a600ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 4px;
+    line-height: 1.2;
+    font-family: 'Beat Tech', sans-serif;
+    position: relative;
+    animation: 
+        hologram-appear 2s cubic-bezier(0.25, 1, 0.5, 1) forwards,
+        hologram-pulse 3s ease-in-out infinite 2s;
+    transform-style: preserve-3d;
+    text-transform: uppercase;
+}
+
+/* Linhas de varredura holográfica */
+.hero h1::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 157, 0.7), transparent);
+    animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+    0% { top: -10%; opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { top: 110%; opacity: 0; }
+}
 .hero p {
     font-size: 1.3rem;
     margin-bottom: 40px;
@@ -329,38 +425,45 @@ nav {
 
 .btn {
     display: inline-block;
-    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
-    color: var(--dark-text);
+    background: linear-gradient(135deg, #00ff9d, #00b7ff);
+    color: #0f0f0f;
     padding: 15px 40px;
     border-radius: 30px;
     text-decoration: none;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    transition: all 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition: all 0.3s ease;
     border: none;
-    font-family: var(--font-main);
+    font-family: 'Titillium Web', sans-serif;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 255, 157, 0.3);
-    
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.5), 0 0 40px rgba(0, 183, 255, 0.3);
+    isolation: isolate;
 }
 
 .btn::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 180deg at center, transparent, rgba(0,255,157,0.2), transparent, rgba(0,183,255,0.2), transparent);
+    animation: rotateGlow 4s linear infinite;
+    z-index: -1;
 }
 
 .btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 255, 157, 0.5);
+    box-shadow: 0 0 20px rgba(0,255,157,0.7), 0 0 60px rgba(0,183,255,0.4);
+    transform: scale(1.03);
 }
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 
 .btn:hover::before {
     left: 100%;
@@ -369,7 +472,6 @@ nav {
 /* Seções com efeitos */
 section {
     padding: 100px 0;
-    position: relative;
 }
 
 .section-title {
@@ -611,6 +713,7 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 40px;
     margin-top: 60px;
+    
 }
 
 .driver-card {
@@ -1013,6 +1116,7 @@ footer::before {
 }
 
 @media (max-width: 768px) {
+    
     .season-info {
         display: none;
     }
@@ -1145,6 +1249,16 @@ nav {
 
 /* Estilo para menu em telas pequenas */
 @media (max-width: 768px) {
+        .hero {
+        height: auto;
+        min-height: 500px; /* ou o valor que quiser */
+        padding: 120px 20px 80px;
+    }
+
+    .hero::before {
+        background-size: cover;
+        background-position: center top;
+    }
     .hamburger {
         display: flex;
     }
