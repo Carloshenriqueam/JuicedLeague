@@ -222,8 +222,13 @@ nav {
 
 .nav-links i {
     margin-right: 8px;
-    color: var(--secondary-color);
+    background: linear-gradient(135deg, var(--secondary-color), #00b7ff, var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     font-size: 1.2rem;
+    background-size: 200% auto;
+    animation: gradientFlow 5s ease infinite;
 }
 .nav-links {
     animation: fadeInNav 0.8s ease-in-out both;

@@ -351,12 +351,12 @@ table {
 th {
     background-color: rgba(0, 255, 157, 0.1);
     color: var(--secondary-color);
-    font-family: var(--font-main);
+    font-family: 'Beat Tech', sans-serif;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 15px 10px;
-    text-align: left;
+    text-align: center;
     position: sticky;
     top: 0;
     text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
